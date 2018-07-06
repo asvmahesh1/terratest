@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'ecs-linux'
+            label 'fargate'
         }
     }
     triggers {
