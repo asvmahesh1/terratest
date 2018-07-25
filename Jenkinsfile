@@ -71,52 +71,6 @@ pipeline {
             }
 
         }
-        stage('Ready') {
-            steps {
-                timeout(time:5, unit: 'MINUTES') {
-                    input message: "Are we ready to proceed?"
-                }
-            }
-        }
-        stage('Provision-Final') {
-            steps {
-                echo 'Provisioning Deve....'
-            }
-        }        
-        stage('Deploy-Final') {
-            steps {
-                echo 'Deploying....'
-                echo 'doing more work'
-            }
-        }
-        stage('Test-Final') {
-            steps {
-                echo 'Deploying....'
-                echo 'doing more work'
-                timeout(time:5, unit: 'MINUTES') {
-                    input message: "Does http://localhost:8888/final/ look good?"
-                }    
-            }
-        }
-        stage('Setup Monitoring') {
-            parallel {
-                stage ('Update Deployment Statistics'){
-                    steps {
-                        echo 'Updating Run Dashboard'
-                    }
-                }
-                stage ('Setup App Monitoring'){
-                    steps {
-                        echo 'Updating Run Dashboard'
-                    }
-                }
-                stage ('Setup Log Analysis'){
-                    steps {
-                        echo 'Updating Run Dashboard'
-                    }
-                }
-            }
-        }
         stage('Cleanup') {
             steps {
                 echo 'Finished Cleanup'
