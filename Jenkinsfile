@@ -24,7 +24,9 @@ pipeline {
                     }
                     if (env.BRANCH_NAME == "master") {
                         stage ('Stage 2') {
+						script {
                             sh 'echo Stage 2'
+							}
                         }
                     }
                 }
