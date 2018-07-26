@@ -15,8 +15,11 @@ pipeline {
             steps {
                 script {
                     if (env.BRANCH_NAME == "dbaas") {
+					   
                         stage ('Stage 1') {
+						     script {
                             sh 'echo Stage 1'
+							}
                         }
                     }
                     if (env.BRANCH_NAME == "master") {
